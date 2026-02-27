@@ -9,28 +9,24 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SOURCE_DIR="$HOME/.claude/skills"
 TARGET_DIR="$REPO_ROOT/skills"
 
-# Skills to sync: source_name → repo_name
+# Skills to sync: source_name:repo_name
 # Add new skills to this list as you publish them.
-declare -A SKILLS=(
-  ["gaql"]="gaql"
-  ["content-miner"]="content-miner"
-  ["kit"]="kit-newsletter"
-  ["twitter-algorithm-optimizer"]="twitter-algorithm-optimizer"
-  ["prompt-optimizer"]="prompt-optimizer"
-)
+SKILLS="
+gaql:gaql
+content-miner:content-miner
+kit:kit-newsletter
+twitter-algorithm-optimizer:twitter-algorithm-optimizer
+prompt-optimizer:prompt-optimizer
+"
 
 # Files/dirs to exclude from copy
-EXCLUDE=(
-  "__pycache__"
-  "*.pyc"
-  "*.pyo"
-  ".DS_Store"
-)
+EXCLUDE="__pycache__ *.pyc *.pyo .DS_Store"
 
 mkdir -p "$TARGET_DIR"
 
-for source_name in "${!SKILLS[@]}"; do
-  repo_name="${SKILLS[$source_name]}"
+for entry in $SKILLS; do
+  source_name="${entry%%:*}"
+  repo_name="${entry##*:}"
   source="$SOURCE_DIR/$source_name"
   target="$TARGET_DIR/$repo_name"
 
@@ -45,7 +41,7 @@ for source_name in "${!SKILLS[@]}"; do
 
   # Build rsync exclude args
   exclude_args=""
-  for pattern in "${EXCLUDE[@]}"; do
+  for pattern in $EXCLUDE; do
     exclude_args="$exclude_args --exclude=$pattern"
   done
 
