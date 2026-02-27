@@ -7,13 +7,13 @@ Marketing skills for Claude Code. Built from real ad accounts and campaigns.
 All skills:
 
 ```
-npx skillsadd channel47/skills
+npx skills add channel47/skills
 ```
 
 Single skill:
 
 ```
-npx skillsadd channel47/skills --skill gaql
+npx skills add channel47/skills --skill gaql
 ```
 
 Or copy a skill folder to `~/.claude/skills/` manually.

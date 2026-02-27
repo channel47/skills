@@ -37,7 +37,7 @@ skills/
 - `SKILL.md` is the required entry point (agent skills standard)
 - `references/` for supporting docs, `scripts/` for helpers
 - No build step, no dependencies, no package.json
-- Install: `npx skillsadd channel47/skills`
+- Install: `npx skills add channel47/skills`
 
 ## Sanitization Rules
 
