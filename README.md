@@ -27,6 +27,7 @@ Or copy a skill folder to `~/.claude/skills/` manually.
 | [kit-newsletter](skills/kit-newsletter) | Manage Kit (ConvertKit) newsletters from the CLI |
 | [twitter-algorithm-optimizer](skills/twitter-algorithm-optimizer) | Optimize tweets against X's ranking algorithm |
 | [prompt-optimizer](skills/prompt-optimizer) | Transform rough prompts into best-practice format |
+| [voice-skill-builder](skills/voice-skill-builder) | Build a personal voice skill by capturing someone's writing style |
 
 ## Compatible with
 
