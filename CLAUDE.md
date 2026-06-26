@@ -1,4 +1,4 @@
-# Channel 47 Skills
+# channel47 Skills
 
 Public repo of marketing-focused Claude Code skills. Compatible with skills.sh.
 
@@ -22,6 +22,9 @@ skills/
 ./scripts/sanitize-check.sh  # Check for personal details
 ```
 
+`scripts/sync.sh` only syncs older local standalone skills from `~/.claude/skills`.
+The flagship Channel47 marketing skills in this repo are maintained directly here.
+
 ## Adding a New Skill
 
 1. Create and iterate the skill in `~/.claude/skills/<name>/`
@@ -36,8 +39,21 @@ skills/
 - Skill dirs: kebab-case names
 - `SKILL.md` is the required entry point (agent skills standard)
 - `references/` for supporting docs, `scripts/` for helpers
+- `agents/` may be bundled inside a skill when the skill needs a reusable subagent prompt
 - No build step, no dependencies, no package.json
 - Install: `npx skills add channel47/skills`
+
+## Flagship System
+
+Keep the public workflow easy for agents and humans to discover:
+
+```
+customer-research -> persona-builder -> angle-generator -> advertorial-builder
+                                      \-> media-buyer + Channel47 MCPs
+```
+
+`creative-strategist` is the orchestrator skill for the research/persona/angle sequence.
+Do not bury the flagship skills under plugin-specific language.
 
 ## Sanitization Rules
 
