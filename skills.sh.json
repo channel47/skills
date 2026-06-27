@@ -1,0 +1,41 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Creative Strategy",
+      "description": "Research, personas, creative angles, and advertorial systems for marketers.",
+      "skills": [
+        "creative-strategist",
+        "customer-research",
+        "persona-builder",
+        "angle-generator",
+        "advertorial-builder"
+      ]
+    },
+    {
+      "title": "Paid Media",
+      "description": "Agent skills for paid media analysis, Google Ads querying, and MCP-backed account operations.",
+      "skills": [
+        "media-buyer",
+        "gaql"
+      ]
+    },
+    {
+      "title": "Distribution",
+      "description": "Skills for turning marketing work into content, newsletters, and social posts.",
+      "skills": [
+        "content-miner",
+        "kit-newsletter",
+        "twitter-algorithm-optimizer"
+      ]
+    },
+    {
+      "title": "Agent Ops",
+      "description": "Utilities for improving agent instructions and reusable marketing workflows.",
+      "skills": [
+        "prompt-optimizer"
+      ]
+    }
+  ]
+}

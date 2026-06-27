@@ -1,5 +1,5 @@
 ---
-name: kit
+name: kit-newsletter
 description: "Manage Kit (ConvertKit) newsletter operations — subscribers, broadcasts, tags, sequences, and more — directly from the CLI. Use this skill whenever the user mentions Kit, ConvertKit, newsletter, email list, broadcast, subscribers, email campaign, drip sequence, or wants to create/send/manage email content through Kit. Also trigger when they say things like 'draft a newsletter', 'check my subscriber count', 'tag subscribers', 'create a broadcast', or reference any Kit-related workflow. If the user is working on email content and you know they use Kit, proactively suggest using this skill."
 ---
 

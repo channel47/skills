@@ -6,14 +6,27 @@ Public repo of marketing-focused Claude Code skills. Compatible with skills.sh.
 
 ```
 skills/
-├── <skill-name>/
-│   ├── SKILL.md          # Required — agent instructions
-│   ├── references/       # Optional — supporting docs
-│   └── scripts/          # Optional — helper scripts
+├── creative-strategy/
+│   ├── creative-strategist/
+│   ├── customer-research/
+│   ├── persona-builder/
+│   ├── angle-generator/
+│   └── advertorial-builder/
+├── paid-media/
+│   ├── media-buyer/
+│   └── gaql/
+├── distribution/
+│   ├── content-miner/
+│   ├── kit-newsletter/
+│   └── twitter-algorithm-optimizer/
+└── agent-ops/
+    └── prompt-optimizer/
 ├── scripts/
 │   ├── sync.sh           # Pull from ~/.claude/skills/ into repo
 │   └── sanitize-check.sh # Flag personal details before push
 ```
+
+Each skill directory contains `SKILL.md` as the required entry point. Skills may also include `references/`, `scripts/`, `assets/`, or `agents/` when the extra context is part of the public reusable workflow.
 
 ## Commands
 
@@ -37,11 +50,13 @@ The flagship Channel47 marketing skills in this repo are maintained directly her
 ## Conventions
 
 - Skill dirs: kebab-case names
+- Category dirs: short kebab-case product areas
 - `SKILL.md` is the required entry point (agent skills standard)
 - `references/` for supporting docs, `scripts/` for helpers
 - `agents/` may be bundled inside a skill when the skill needs a reusable subagent prompt
 - No build step, no dependencies, no package.json
 - Install: `npx skills add channel47/skills`
+- Public repo page grouping: update `skills.sh.json` whenever skills are added, renamed, or moved
 
 ## Flagship System
 

@@ -9,14 +9,14 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SOURCE_DIR="$HOME/.claude/skills"
 TARGET_DIR="$REPO_ROOT/skills"
 
-# Skills to sync: source_name:repo_name
+# Skills to sync: source_name:repo_relative_target
 # Add new skills to this list as you publish them.
 SKILLS="
-gaql:gaql
-content-miner:content-miner
-kit:kit-newsletter
-twitter-algorithm-optimizer:twitter-algorithm-optimizer
-prompt-optimizer:prompt-optimizer
+gaql:paid-media/gaql
+content-miner:distribution/content-miner
+kit:distribution/kit-newsletter
+twitter-algorithm-optimizer:distribution/twitter-algorithm-optimizer
+prompt-optimizer:agent-ops/prompt-optimizer
 "
 
 # Files/dirs to exclude from copy
@@ -26,9 +26,9 @@ mkdir -p "$TARGET_DIR"
 
 for entry in $SKILLS; do
   source_name="${entry%%:*}"
-  repo_name="${entry##*:}"
+  repo_target="${entry##*:}"
   source="$SOURCE_DIR/$source_name"
-  target="$TARGET_DIR/$repo_name"
+  target="$TARGET_DIR/$repo_target"
 
   if [ ! -d "$source" ]; then
     echo "SKIP: $source_name not found in ~/.claude/skills/"
@@ -47,7 +47,17 @@ for entry in $SKILLS; do
 
   rsync -a $exclude_args "$source/" "$target/"
 
-  echo "Synced: $source_name → $repo_name"
+  # Preserve public install slugs when local skill names differ from repo names.
+  case "$repo_target" in
+    distribution/content-miner)
+      perl -0pi -e 's/^name: content-mining$/name: content-miner/m' "$target/SKILL.md"
+      ;;
+    distribution/kit-newsletter)
+      perl -0pi -e 's/^name: kit$/name: kit-newsletter/m' "$target/SKILL.md"
+      ;;
+  esac
+
+  echo "Synced: $source_name -> $repo_target"
 done
 
 echo ""

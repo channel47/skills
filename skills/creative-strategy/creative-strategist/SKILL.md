@@ -1,6 +1,12 @@
 ---
 name: creative-strategist
-description: This skill should be used when the user wants to run the Channel47 creative strategy pipeline end-to-end: customer research, personas, and ad angles in sequence. Trigger on "creative strategist", "run the full pipeline", "full creative strategy", "research to angles", "end-to-end creative", "run all three stages", "complete creative analysis", or when the user wants all three creative-strategist stages run as one workflow.
+description: >-
+  Use this skill when the user wants to run the Channel47 creative strategy
+  pipeline end-to-end: customer research, personas, and ad angles in sequence.
+  Trigger on "creative strategist", "run the full pipeline", "full creative
+  strategy", "research to angles", "end-to-end creative", "run all three
+  stages", "complete creative analysis", or requests all three stages as one
+  workflow.
 ---
 
 # Creative Strategist — Research to Angles in One Pass

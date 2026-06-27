@@ -1,5 +1,5 @@
 ---
-name: content-mining
+name: content-miner
 description: "Extract high-signal content from recent activity and package it for distribution. Use this skill whenever the user says anything like 'content mine', 'what should I post', 'find me content', 'what's shareable', 'content ideas', 'mine my week', 'what did I learn this week', 'anything worth posting', 'content from my notes', 'extract content', or any indication they want to turn recent work, thinking, or builds into distributable content across X, LinkedIn, Newsletter, and GitHub. Also trigger when they reference wanting to 'show the work', 'build in public', or 'post about' something recent."
 ---
 
