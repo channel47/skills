@@ -17,6 +17,7 @@ skills/
 │   └── twitter-algorithm-optimizer/
 └── agent-ops/
     └── prompt-optimizer/
+├── examples/             # Sample skill outputs linked from README (fictional products, synthetic quotes)
 ├── scripts/
 │   ├── sync.sh           # Pull from ~/.claude/skills/ into repo
 │   └── sanitize-check.sh # Flag personal details before push

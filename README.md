@@ -2,6 +2,12 @@
 
 Agentic marketing systems for Claude Code and SKILL.md-compatible agents.
 
+**Flagship — [`creative-strategist`](skills/creative-strategy/creative-strategist):** real customer language → buyer personas → ranked ad angles → build-ready advertorial, accumulating in one per-product dossier where every claim cites the customer quote it stands on. **[See a sample dossier →](examples/hushhound-dossier.md)**
+
+```
+npx skills add channel47/skills --skill creative-strategist
+```
+
 Marketers do not need more AI tips. They need systems they can run: research pipelines, creative strategy workflows, advertorial builders, paid media operators, and distribution tools that install cleanly into the agents they already use.
 
 ## Install
