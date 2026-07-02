@@ -1,18 +1,18 @@
 # Content Mining
 
-Turn your recent work into distributable content. Pulls from Apple Notes, personal context, chat history, and completed tasks to find the highest-signal material, then packages it for X, LinkedIn, Newsletter, and GitHub.
+Turn your recent work into distributable content. Pulls from your work artifacts (git history, PRs), notes, chat history, and completed tasks to find the highest-signal material, then packages it for X, LinkedIn, Newsletter, and GitHub.
 
 Not a content calendar. A mining operation.
 
 ## Install
 
 ```bash
-claude skill add --url https://github.com/channel47/skills --skill content-miner
+npx skills add channel47/skills --skill content-miner
 ```
 
 ## What it does
 
-1. **Gathers** the last 7–14 days from every available source (notes, memory, chats, reminders)
+1. **Gathers** the last 7–14 days from every available source (git history, notes, chats, tasks)
 2. **Extracts** the highest-signal nuggets using five filters (provenance, specificity, replaceability, tension, "so what")
 3. **Classifies** each nugget by type (build log, tool report, contrarian take, process note, shipping update, receipts)
 4. **Packages** channel-specific drafts matched to where the content works best
@@ -40,9 +40,9 @@ claude skill add --url https://github.com/channel47/skills --skill content-miner
 
 ## Pairs well with
 
-- A brand voice skill (loaded first, applied to all drafts)
-- A weekly reflection skill (pre-digested insights ready to mine)
-- An audience research skill (competitive context on topics)
+- A brand voice skill or style guide (loaded first, applied to all drafts)
+- [`creative-strategist`](../../creative-strategy/creative-strategist) (a finished dossier is high-signal mining material)
+- [`twitter-algorithm-optimizer`](../twitter-algorithm-optimizer) (optimize the X drafts before posting)
 
 ## Fast mode
 

@@ -1,64 +1,37 @@
 ---
 name: creative-strategist
-description: >-
-  Use this skill when the user wants to run the Channel47 creative strategy
-  pipeline end-to-end: customer research, personas, and ad angles in sequence.
-  Trigger on "creative strategist", "run the full pipeline", "full creative
-  strategy", "research to angles", "end-to-end creative", "run all three
-  stages", "complete creative analysis", or requests all three stages as one
-  workflow.
+description: Turn real customer language into ads that convert — voice-of-customer research, buyer personas, ranked ad angles, and a build-ready advertorial, accumulating in one per-product dossier. Use when the user wants to research what customers say about a product or category (pull reviews, Reddit threads, VOC, pain points, complaints), build buyer personas or customer avatars, find ad angles, hooks, or creative concepts, write an advertorial, presell, editorial, or listicle landing page, or run the creative strategy pipeline end to end.
 ---
 
-# Creative Strategist — Research to Angles in One Pass
+# Creative Strategist
 
-Run all three stages of the creative strategy pipeline in sequence. Each stage's output feeds directly into the next. This skill orchestrates customer-research, persona-builder, and angle-generator — it does not duplicate their methodology.
+Four stages, each feeding the next. Load only the stage file(s) needed from `references/`:
 
-## Pipeline
+| User wants | Load | Prereq |
+|---|---|---|
+| Customer research, reviews, VOC | `research.md` | — |
+| Personas, customer avatars | `personas.md` | research |
+| Ad angles, hooks, concepts | `angles.md` | personas |
+| Advertorial, presell page | `advertorial.md` | angles |
 
-```
-Research (customer-research)  ->  Personas (persona-builder)  ->  Angles (angle-generator)
-        |                                |                               |
-[product]-research.md            [product]-personas.md           [product]-angles.md
-  40+ triple-tagged quotes         2-4 personas + anti-persona     5-8 angles + testing roadmap
-  language clusters                creative briefs per persona     hook copy starters
-  surprising findings              attention patterns              format variants
-```
+Full pipeline = all four in sequence. If a prerequisite section is missing from the dossier, offer to run that stage first — or accept equivalent context from the user and note the thinner foundation.
 
-## Process
+Research runs as a subagent: launch an Agent whose prompt is the contents of `research.md` + `sources.md`, plus the research target and the dossier path. This keeps the noisy crawl out of the main context.
 
-1. Check `.claude/creative-strategist.local.md` for existing product context.
+## The dossier
 
-2. Determine the research target from the user's argument or config file. If neither provides a clear target, ask:
-   - What product or category to research
-   - Any known competitors
-   - Any specific questions or hypotheses
+All output accumulates in `creative/[product-slug]-dossier.md` — one file per product, each stage owning a `## Stage: ...` section.
 
-3. **Stage 1: Research** — Execute the customer-research skill (which launches the research-crawler agent). Verify the output meets quality standards: 40+ quotes, triple-tagged, language clusters, surprising findings, source coverage log. Verify YAML frontmatter is present with `stage: research`, quote count, and P1 coverage. Save as `[product-slug]-research.md`. Brief the user: "[X] quotes from [Y] sources. Top pain point: [Z]. Proceeding to personas."
+**Traceability law** (the whole system rests on it):
 
-4. **Stage 2: Personas** — Execute the persona-builder skill, feeding it the research output. Verify: 2-4 personas with creative briefs, anti-persona, comparison matrix. Verify YAML frontmatter is present with `stage: personas`, persona names, and research file reference. Save as `[product-slug]-personas.md`. Brief the user: "[N] personas built: [names]. Anti-persona: [name]. Proceeding to angles."
+- Every quote is verbatim, tagged, and gets a stable ID: `Q12 [🔥2 | solution-aware] "exact words" — source URL`
+- Intensity: 🔥1 calm fact · 🔥2 clear emotion · 🔥3 visceral story (hook material — if over ~30% of quotes land here, recalibrate; real 🔥3 is rare)
+- Journey stage: pre-aware · problem-aware · solution-aware · decision · post-purchase
+- Every downstream claim — persona trait, angle, headline — cites the quote IDs it stands on
+- IDs are append-only: re-runs add new quotes under fresh IDs; never renumber or reuse an ID
+- When a stage re-runs, prepend `> Stale — upstream re-run [date]` to each downstream section until it is rebuilt
+- Never fabricate quotes, testimonials, stats, or reviews. Thin evidence → label the output speculative and say what's missing.
 
-5. **Stage 3: Angles** — Execute the angle-generator skill, feeding it both research and personas. Verify: 5-8 angles with tiers, hook copy, format variants, testing roadmap. Verify YAML frontmatter is present with `stage: angles`, tier counts, and upstream file references. Save as `[product-slug]-angles.md`.
+## Working style
 
-6. **Final Summary** — Present a comprehensive pipeline summary:
-
-   **Research** ([X] quotes from [Y] sources)
-   - Top 3 surprising findings
-   - Biggest data gap (if any)
-
-   **Personas** ([N] personas)
-   - Each persona: name + one-sentence core tension
-   - Anti-persona: name + why they won't convert
-
-   **Angles** ([N] angles, [X] Tier 1)
-   - Each Tier 1 angle: name + category + one hook copy starter
-   - Testing roadmap Phase 1: which angles first, which platforms, budget split
-
-   **Files saved:**
-   - `[product-slug]-research.md`
-   - `[product-slug]-personas.md`
-   - `[product-slug]-angles.md`
-
-   **Recommended next steps:**
-   - Review the angles file for full hook copy, format variants, and platform execution
-   - Start with Phase 1 of the testing roadmap
-   - Re-run customer-research with deeper focus if any critical data gaps were flagged
+Check `.claude/creative-strategist.local.md` for product context; if the target is unclear, ask for product or category, known competitors, and open questions. After each stage, brief the user in 3-5 lines (headline findings, biggest gap, suggested next stage) — don't dump the file.

@@ -7,23 +7,18 @@ Public repo of marketing-focused Claude Code skills. Compatible with skills.sh.
 ```
 skills/
 ├── creative-strategy/
-│   ├── creative-strategist/
-│   ├── customer-research/
-│   ├── persona-builder/
-│   ├── angle-generator/
-│   └── advertorial-builder/
+│   └── creative-strategist/
 ├── paid-media/
 │   ├── media-buyer/
 │   └── gaql/
-├── distribution/
-│   ├── content-miner/
-│   ├── kit-newsletter/
-│   └── twitter-algorithm-optimizer/
-└── agent-ops/
-    └── prompt-optimizer/
-├── scripts/
-│   ├── sync.sh           # Pull from ~/.claude/skills/ into repo
-│   └── sanitize-check.sh # Flag personal details before push
+└── distribution/
+    ├── content-miner/
+    ├── kit-newsletter/
+    └── twitter-algorithm-optimizer/
+examples/             # Sample skill outputs linked from README (fictional products, synthetic quotes)
+scripts/
+├── sync.sh           # Pull from ~/.claude/skills/ into repo
+└── sanitize-check.sh # Flag personal details before push
 ```
 
 Each skill directory contains `SKILL.md` as the required entry point. Skills may also include `references/`, `scripts/`, `assets/`, or `agents/` when the extra context is part of the public reusable workflow.
@@ -63,12 +58,13 @@ The flagship Channel47 marketing skills in this repo are maintained directly her
 Keep the public workflow easy for agents and humans to discover:
 
 ```
-customer-research -> persona-builder -> angle-generator -> advertorial-builder
-                                      \-> media-buyer + Channel47 MCPs
+creative-strategist: research -> personas -> angles -> advertorial
+                               \-> media-buyer + Channel47 MCPs
 ```
 
-`creative-strategist` is the orchestrator skill for the research/persona/angle sequence.
-Do not bury the flagship skills under plugin-specific language.
+`creative-strategist` is the single flagship skill — four stages that run independently
+or in sequence, accumulating into one per-product dossier.
+Do not bury the flagship skill under plugin-specific language.
 
 ## Sanitization Rules
 

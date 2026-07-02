@@ -2,6 +2,12 @@
 
 Agentic marketing systems for Claude Code and SKILL.md-compatible agents.
 
+**Flagship — [`creative-strategist`](skills/creative-strategy/creative-strategist):** real customer language → buyer personas → ranked ad angles → build-ready advertorial, accumulating in one per-product dossier where every claim cites the customer quote it stands on. **[See a sample dossier →](examples/hushhound-dossier.md)**
+
+```
+npx skills add channel47/skills --skill creative-strategist
+```
+
 Marketers do not need more AI tips. They need systems they can run: research pipelines, creative strategy workflows, advertorial builders, paid media operators, and distribution tools that install cleanly into the agents they already use.
 
 ## Install
@@ -30,11 +36,7 @@ Or copy a skill folder to your agent's skills directory manually.
 
 | Skill | What it does |
 |-------|-------------|
-| [creative-strategist](skills/creative-strategy/creative-strategist) | Run the research -> personas -> angles pipeline end to end |
-| [customer-research](skills/creative-strategy/customer-research) | Pull voice-of-customer research from public reviews, Reddit, forums, and articles |
-| [persona-builder](skills/creative-strategy/persona-builder) | Turn research into behavior-based personas and anti-personas |
-| [angle-generator](skills/creative-strategy/angle-generator) | Generate ranked ad angles, hooks, variants, and a testing roadmap |
-| [advertorial-builder](skills/creative-strategy/advertorial-builder) | Turn a winning angle into a build-ready editorial pre-sell page |
+| [creative-strategist](skills/creative-strategy/creative-strategist) | Voice-of-customer research -> personas -> ad angles -> advertorial, as one pipeline or stage by stage |
 
 ## Paid Media
 
@@ -51,20 +53,16 @@ Or copy a skill folder to your agent's skills directory manually.
 | [kit-newsletter](skills/distribution/kit-newsletter) | Manage Kit newsletters from the CLI |
 | [twitter-algorithm-optimizer](skills/distribution/twitter-algorithm-optimizer) | Optimize tweets against X's ranking algorithm |
 
-## Agent Ops
-
-| Skill | What it does |
-|-------|-------------|
-| [prompt-optimizer](skills/agent-ops/prompt-optimizer) | Transform rough prompts into best-practice format |
-
 ## System Map
 
-The flagship Channel47 workflow is:
+The flagship Channel47 workflow is the `creative-strategist` skill:
 
 ```
-customer-research -> persona-builder -> angle-generator -> advertorial-builder
-                                      \-> media-buyer + MCP connectors
+research -> personas -> angles -> advertorial
+                      \-> media-buyer + MCP connectors
 ```
+
+Each stage runs independently or in sequence, accumulating into a single per-product dossier.
 
 The standalone skills are the public, agent-discoverable surface. The MCP connectors live in [`channel47/mcps`](https://github.com/channel47/mcps). Older Claude Code plugin packaging lives in [`channel47/plugins`](https://github.com/channel47/plugins) for history and compatibility.
 
