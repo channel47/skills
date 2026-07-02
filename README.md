@@ -53,12 +53,6 @@ Or copy a skill folder to your agent's skills directory manually.
 | [kit-newsletter](skills/distribution/kit-newsletter) | Manage Kit newsletters from the CLI |
 | [twitter-algorithm-optimizer](skills/distribution/twitter-algorithm-optimizer) | Optimize tweets against X's ranking algorithm |
 
-## Agent Ops
-
-| Skill | What it does |
-|-------|-------------|
-| [prompt-optimizer](skills/agent-ops/prompt-optimizer) | Transform rough prompts into best-practice format |
-
 ## System Map
 
 The flagship Channel47 workflow is the `creative-strategist` skill:

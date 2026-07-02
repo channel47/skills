@@ -25,13 +25,6 @@
         "kit-newsletter",
         "twitter-algorithm-optimizer"
       ]
-    },
-    {
-      "title": "Agent Ops",
-      "description": "Utilities for improving agent instructions and reusable marketing workflows.",
-      "skills": [
-        "prompt-optimizer"
-      ]
     }
   ]
 }

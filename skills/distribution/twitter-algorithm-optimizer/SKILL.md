@@ -18,6 +18,8 @@ Optimize tweets against X's actual ranking system. This skill uses the publicly 
 
 ## The Algorithm (January 2026 Grok-Based System)
 
+> **Last verified against `github.com/xai-org/x-algorithm`: 2026-07-02.** X ships ranking changes without announcements — if that date is more than a few months old, re-check the source before leaning on specific weights.
+
 X open-sourced its Grok-powered recommendation algorithm in January 2026. This replaced the legacy 2023 system. The architecture:
 
 - **Home Mixer**: Orchestrates the feed

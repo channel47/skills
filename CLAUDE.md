@@ -11,16 +11,14 @@ skills/
 ├── paid-media/
 │   ├── media-buyer/
 │   └── gaql/
-├── distribution/
-│   ├── content-miner/
-│   ├── kit-newsletter/
-│   └── twitter-algorithm-optimizer/
-└── agent-ops/
-    └── prompt-optimizer/
-├── examples/             # Sample skill outputs linked from README (fictional products, synthetic quotes)
-├── scripts/
-│   ├── sync.sh           # Pull from ~/.claude/skills/ into repo
-│   └── sanitize-check.sh # Flag personal details before push
+└── distribution/
+    ├── content-miner/
+    ├── kit-newsletter/
+    └── twitter-algorithm-optimizer/
+examples/             # Sample skill outputs linked from README (fictional products, synthetic quotes)
+scripts/
+├── sync.sh           # Pull from ~/.claude/skills/ into repo
+└── sanitize-check.sh # Flag personal details before push
 ```
 
 Each skill directory contains `SKILL.md` as the required entry point. Skills may also include `references/`, `scripts/`, `assets/`, or `agents/` when the extra context is part of the public reusable workflow.

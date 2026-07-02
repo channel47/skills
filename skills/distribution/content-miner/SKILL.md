@@ -13,17 +13,17 @@ The premise: the best content already exists. It's buried in notes, conversation
 
 ## Before You Start
 
-**Load the brand voice first.** If a brand-voice skill exists, read it before writing a single word of output. Every piece of content this skill produces must pass through that voice. No exceptions. If no brand-voice skill exists, ask the user to describe their voice and tone before drafting anything.
+**Load the brand voice first.** If a brand-voice skill or style guide exists in the workspace, read it before writing a single word of output. Every piece of content this skill produces must pass through that voice. No exceptions. If none exists, ask the user to describe their voice and tone before drafting anything.
 
 **Get the current date.** Run `date` or equivalent. You need this to anchor timestamps from notes and chats. Get it wrong and you're mining last month's material.
 
-**Check available tools.** This skill pulls from multiple sources. Use what's available:
+**Discover the sources.** Check `.claude/content-miner.local.md` for the user's configured sources; otherwise ask which of these hold their recent work, then use whatever is actually connected:
 
-- **Apple Notes** (daily logs, longer reflections, voice-note transcripts)
-- **Personal context** (`~/.claude/personal-context.md` — life context, relationships, career arc)
-- **Past chats** (recent_chats / conversation_search)
-- **Reminders / tasks** (completed items reveal what actually got done)
-- **Web search** (for context on topics, trending angles, what's already been said)
+- **Work artifacts** — git log, merged PRs, closed issues, shipped changes
+- **Notes and journals** — whatever notes tool is reachable (MCP-connected notes apps, markdown journals, docs folders)
+- **Conversation history** — chat/session history tools, standup logs, support threads
+- **Completed tasks** — task manager or TODO history (reveals what actually got done vs. planned)
+- **Web search** — for context on topics, trending angles, what's already been said
 
 If some sources are missing, work with what you have. Partial context is better than no context. Flag what's missing so the user knows the gaps.
 
@@ -45,18 +45,18 @@ Read daily logs and longer notes/reflections. Look for:
 
 Use confirmed current date to anchor all timestamps. Chronology within each day matters. Morning confusion can resolve into evening clarity. Read entries in order and treat the last entry of a day as the landed position.
 
-### Personal Context & Project State
+### Project State
 
-Read `~/.claude/personal-context.md` and relevant project CLAUDE.md files. Look for:
+Read project READMEs, CLAUDE.md files, changelogs, and recent git history. Look for:
 
 - **Direction shifts.** Anything that changed course in the last two weeks. Changes in strategy are process notes waiting to happen.
 - **New projects or milestones.** Anything shipped, launched, or hit a meaningful threshold.
 - **Resolved questions.** If something was open and now has an answer, that's a content arc.
-- **Relationships between projects.** Unexpected connections between separate threads often make the most interesting content.
+- **Connections between projects.** Unexpected links between separate threads often make the most interesting content.
 
-### Past Chats
+### Conversation History
 
-Use `recent_chats` (last 7–14 days) and `conversation_search` for specific threads. Look for:
+If chat or session history tools are available, pull the last 7–14 days. Look for:
 
 - **Problems worked through.** The messy middle of a build, debugged live. Build log gold.
 - **Explanations given.** When someone explained something clearly to an AI, that explanation is often 80% of a post already.
@@ -64,9 +64,9 @@ Use `recent_chats` (last 7–14 days) and `conversation_search` for specific thr
 - **"Aha" moments.** When the conversation shifted from confusion to clarity. That inflection point IS the content.
 - **Techniques or workflows refined.** Anything that got better through iteration is a process note.
 
-### Completed Tasks / Reminders
+### Completed Tasks
 
-Check completed reminders and tasks. These reveal:
+Check completed tasks in whatever tracker is available. These reveal:
 
 - What actually shipped vs. what was planned
 - The gap between intention and execution (content in itself)

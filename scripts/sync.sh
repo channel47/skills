@@ -11,12 +11,12 @@ TARGET_DIR="$REPO_ROOT/skills"
 
 # Skills to sync: source_name:repo_relative_target
 # Add new skills to this list as you publish them.
+# NOT in this list (repo copy is canonical — do not re-add without merging repo edits):
+#   content-miner, twitter-algorithm-optimizer (generalized/annotated for public use)
+#   prompt-optimizer (deprecated from this repo)
 SKILLS="
 gaql:paid-media/gaql
-content-miner:distribution/content-miner
 kit:distribution/kit-newsletter
-twitter-algorithm-optimizer:distribution/twitter-algorithm-optimizer
-prompt-optimizer:agent-ops/prompt-optimizer
 "
 
 # Files/dirs to exclude from copy
