@@ -7,11 +7,7 @@ Public repo of marketing-focused Claude Code skills. Compatible with skills.sh.
 ```
 skills/
 ├── creative-strategy/
-│   ├── creative-strategist/
-│   ├── customer-research/
-│   ├── persona-builder/
-│   ├── angle-generator/
-│   └── advertorial-builder/
+│   └── creative-strategist/
 ├── paid-media/
 │   ├── media-buyer/
 │   └── gaql/
@@ -63,12 +59,13 @@ The flagship Channel47 marketing skills in this repo are maintained directly her
 Keep the public workflow easy for agents and humans to discover:
 
 ```
-customer-research -> persona-builder -> angle-generator -> advertorial-builder
-                                      \-> media-buyer + Channel47 MCPs
+creative-strategist: research -> personas -> angles -> advertorial
+                               \-> media-buyer + Channel47 MCPs
 ```
 
-`creative-strategist` is the orchestrator skill for the research/persona/angle sequence.
-Do not bury the flagship skills under plugin-specific language.
+`creative-strategist` is the single flagship skill — four stages that run independently
+or in sequence, accumulating into one per-product dossier.
+Do not bury the flagship skill under plugin-specific language.
 
 ## Sanitization Rules
 
