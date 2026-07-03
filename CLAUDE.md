@@ -7,6 +7,7 @@ Public repo of marketing-focused Claude Code skills. Compatible with skills.sh.
 ```
 skills/
 ├── creative-strategy/
+│   ├── brief-me/
 │   └── creative-strategist/
 ├── paid-media/
 │   ├── media-buyer/
@@ -58,6 +59,7 @@ The flagship Channel47 marketing skills in this repo are maintained directly her
 Keep the public workflow easy for agents and humans to discover:
 
 ```
+brief-me -> brand/context.md (shared brand dossier, read by all skills)
 creative-strategist: research -> personas -> angles -> advertorial
                                \-> media-buyer + Channel47 MCPs
 ```
