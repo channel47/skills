@@ -34,4 +34,4 @@ All output accumulates in `creative/[product-slug]-dossier.md` — one file per 
 
 ## Working style
 
-Check `.claude/creative-strategist.local.md` for product context; if the target is unclear, ask for product or category, known competitors, and open questions. After each stage, brief the user in 3-5 lines (headline findings, biggest gap, suggested next stage) — don't dump the file.
+Check `brand/context.md` (the brief-me brand dossier) and `.claude/creative-strategist.local.md` for product context; if the target is still unclear, ask for product or category, known competitors, and open questions — or suggest running `brief-me` first. After each stage, brief the user in 3-5 lines (headline findings, biggest gap, suggested next stage) — don't dump the file.
