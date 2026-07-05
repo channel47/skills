@@ -7,6 +7,7 @@ Public repo of marketing-focused Claude Code skills. Compatible with skills.sh.
 ```
 skills/
 ├── creative-strategy/
+│   ├── ad-recon/
 │   ├── brief-me/
 │   └── creative-strategist/
 ├── paid-media/
@@ -60,6 +61,7 @@ Keep the public workflow easy for agents and humans to discover:
 
 ```
 brief-me -> brand/context.md (shared brand dossier, read by all skills)
+ad-recon -> dossier ## Stage: Ad Recon (feeds the angles differentiation gate)
 creative-strategist: research -> personas -> angles -> advertorial
                                \-> media-buyer + Channel47 MCPs
 ```

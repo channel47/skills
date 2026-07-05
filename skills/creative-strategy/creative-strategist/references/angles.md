@@ -6,7 +6,7 @@ Three gates per angle:
 
 1. **Evidence** — anchored on a 🔥3 quote plus 2+ supporting, cited by ID
 2. **Persona fit** — matches one persona's creative brief
-3. **Differentiation** — not what competitors visibly run; ideally built on a surprising finding
+3. **Differentiation** — not what competitors visibly run: check the dossier's `## Stage: Ad Recon` section, or offer to run the `ad-recon` skill if it's missing; ideally built on a surprising finding
 
 All three → Tier 1 · missing only gate 3 → Tier 2 · missing gate 1 or 2 → speculative or cut.
 

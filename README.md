@@ -37,6 +37,7 @@ Or copy a skill folder to your agent's skills directory manually.
 | Skill | What it does |
 |-------|-------------|
 | [brief-me](skills/creative-strategy/brief-me) | Discovery interview that grills you about brand, offer, and audience, then writes the shared brand context file other skills read |
+| [ad-recon](skills/creative-strategy/ad-recon) | Pull competitors' live ads from public ad libraries, classify every ad by angle, and map crowded vs. open creative territory |
 | [creative-strategist](skills/creative-strategy/creative-strategist) | Voice-of-customer research -> personas -> ad angles -> advertorial, as one pipeline or stage by stage |
 
 ## Paid Media

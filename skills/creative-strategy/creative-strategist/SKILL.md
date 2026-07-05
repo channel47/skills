@@ -14,6 +14,8 @@ Four stages, each feeding the next. Load only the stage file(s) needed from `ref
 | Ad angles, hooks, concepts | `angles.md` | personas |
 | Advertorial, presell page | `advertorial.md` | angles |
 
+Competitor ad intelligence lives in the separate `ad-recon` skill — it writes `## Stage: Ad Recon` to the same dossier and feeds the angles differentiation gate.
+
 Full pipeline = all four in sequence. If a prerequisite section is missing from the dossier, offer to run that stage first — or accept equivalent context from the user and note the thinner foundation.
 
 Research runs as a subagent: launch an Agent whose prompt is the contents of `research.md` + `sources.md`, plus the research target and the dossier path. This keeps the noisy crawl out of the main context.
