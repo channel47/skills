@@ -1,84 +1,59 @@
 # channel47 Skills
 
-Public repo of marketing-focused Claude Code skills. Compatible with skills.sh.
+Public repository of three creative-strategy skills.
 
 ## Structure
 
 ```
 skills/
-├── creative-strategy/
-│   ├── ad-recon/
-│   ├── brief-me/
-│   └── creative-strategist/
-├── paid-media/
-│   ├── media-buyer/
-│   └── gaql/
-└── distribution/
-    ├── content-miner/
-    ├── kit-newsletter/
-    └── twitter-algorithm-optimizer/
-examples/             # Sample skill outputs linked from README (fictional products, synthetic quotes)
+└── creative-strategy/
+    ├── ad-recon/
+    ├── brief-me/
+    └── creative-strategist/
 scripts/
-├── sync.sh           # Pull from ~/.claude/skills/ into repo
-└── sanitize-check.sh # Flag personal details before push
+└── sanitize-check.sh
 ```
 
-Each skill directory contains `SKILL.md` as the required entry point. Skills may also include `references/`, `scripts/`, `assets/`, or `agents/` when the extra context is part of the public reusable workflow.
+Each skill directory contains `SKILL.md` as its entry point. A skill may also
+include `references/`, `scripts/`, `assets/`, or `agents/` when those files are
+required by the workflow.
 
 ## Commands
 
 ```bash
-./scripts/sync.sh            # Sync skills from ~/.claude/skills/
-./scripts/sanitize-check.sh  # Check for personal details
+./scripts/sanitize-check.sh
 ```
 
-`scripts/sync.sh` only syncs older local standalone skills from `~/.claude/skills`.
-The flagship Channel47 marketing skills in this repo are maintained directly here.
+## Adding a Skill
 
-## Adding a New Skill
-
-1. Create and iterate the skill in `~/.claude/skills/<name>/`
-2. Add the skill to the `SKILLS` map in `scripts/sync.sh`
-3. Run `./scripts/sync.sh`
-4. Run `./scripts/sanitize-check.sh` — fix any flags
-5. Update `README.md` skills table
-6. Commit and push
+1. Add the skill under `skills/creative-strategy/<name>/`.
+2. Add `SKILL.md` with valid `name` and `description` frontmatter.
+3. Add supporting files only when the workflow requires them.
+4. Run `./scripts/sanitize-check.sh` and fix any flags.
+5. Update `README.md` and `skills.sh.json`.
 
 ## Conventions
 
-- Skill dirs: kebab-case names
-- Category dirs: short kebab-case product areas
-- `SKILL.md` is the required entry point (agent skills standard)
-- `references/` for supporting docs, `scripts/` for helpers
-- `agents/` may be bundled inside a skill when the skill needs a reusable subagent prompt
-- No build step, no dependencies, no package.json
-- Install: `npx skills add channel47/skills`
-- Public repo page grouping: update `skills.sh.json` whenever skills are added, renamed, or moved
+- Skill and category directories use kebab-case.
+- `SKILL.md` is the required entry point.
+- `references/` contains supporting instructions; `scripts/` contains helpers.
+- The repository has no build step or package dependencies.
+- Public install command: `npx skills add channel47/skills`.
 
-## Flagship System
+## Shared Files
 
-Keep the public workflow easy for agents and humans to discover:
+- `brief-me` writes shared brand context to `brand/context.md`.
+- `ad-recon` and `creative-strategist` write stage sections to
+  `creative/[product-slug]-dossier.md`.
+- Quote and ad IDs are append-only. Do not renumber them during maintenance.
 
-```
-brief-me -> brand/context.md (shared brand dossier, read by all skills)
-ad-recon -> dossier ## Stage: Ad Recon (feeds the angles differentiation gate)
-creative-strategist: research -> personas -> angles -> advertorial
-                               \-> media-buyer + Channel47 MCPs
-```
+## Sanitization
 
-`creative-strategist` is the single flagship skill — four stages that run independently
-or in sequence, accumulating into one per-product dossier.
-Do not bury the flagship skill under plugin-specific language.
+This is a public repository. Do not include:
 
-## Sanitization Rules
+- real client or employer details;
+- local machine paths;
+- private environment variable names or account IDs;
+- references to private skills or personal files.
 
-This is a PUBLIC repo. Before pushing, ensure NO personal details:
-
-- No real names, employer references, or relationship details
-- No local machine paths (`/Users/...`)
-- No private env var names or account IDs
-- No references to private skills (personal-voice, weekly-reflection, etc.)
-
-Generic references like `KIT_API_KEY` are fine — that's a standard env var name.
-
-Run `./scripts/sanitize-check.sh` to verify. It checks for known patterns.
+Run `./scripts/sanitize-check.sh` before publishing changes.

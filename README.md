@@ -1,75 +1,37 @@
 # channel47 Skills
 
-Agentic marketing systems for Claude Code and SKILL.md-compatible agents.
-
-**Flagship — [`creative-strategist`](skills/creative-strategy/creative-strategist):** real customer language → buyer personas → ranked ad angles → build-ready advertorial, accumulating in one per-product dossier where every claim cites the customer quote it stands on. **[See a sample dossier →](examples/hushhound-dossier.md)**
-
-```
-npx skills add channel47/skills --skill creative-strategist
-```
-
-Marketers do not need more AI tips. They need systems they can run: research pipelines, creative strategy workflows, advertorial builders, paid media operators, and distribution tools that install cleanly into the agents they already use.
+Three installable creative-strategy skills for SKILL.md-compatible agents.
 
 ## Install
 
-All skills:
-
-```
+```bash
+# Choose skills and target agents interactively
 npx skills add channel47/skills
-```
 
-Single skill:
+# Install all three skills to all detected agents
+npx skills add channel47/skills --all
 
-```
+# One skill
 npx skills add channel47/skills --skill creative-strategist
-```
 
-List available skills:
-
-```
+# List available skills
 npx skills add channel47/skills --list
 ```
 
 Or copy a skill folder to your agent's skills directory manually.
 
-## Creative Strategy
+## Skills
 
 | Skill | What it does |
 |-------|-------------|
-| [brief-me](skills/creative-strategy/brief-me) | Discovery interview that grills you about brand, offer, and audience, then writes the shared brand context file other skills read |
-| [ad-recon](skills/creative-strategy/ad-recon) | Pull competitors' live ads from public ad libraries, classify every ad by angle, and map crowded vs. open creative territory |
-| [creative-strategist](skills/creative-strategy/creative-strategist) | Voice-of-customer research -> personas -> ad angles -> advertorial, as one pipeline or stage by stage |
+| [brief-me](skills/creative-strategy/brief-me) | Interviews the user and writes shared brand context to `brand/context.md`. |
+| [ad-recon](skills/creative-strategy/ad-recon) | Collects and classifies competitor ads from public ad libraries. |
+| [creative-strategist](skills/creative-strategy/creative-strategist) | Runs research, persona, angle, and advertorial stages in a product dossier. |
 
-## Paid Media
+## Requirements
 
-| Skill | What it does |
-|-------|-------------|
-| [media-buyer](skills/paid-media/media-buyer) | Query and operate Google Ads, Bing Ads, and Meta Ads through Channel47 MCPs |
-| [gaql](skills/paid-media/gaql) | Write, debug, and validate Google Ads Query Language queries |
+- A client that supports `SKILL.md` skills.
+- File access for the shared context and dossier outputs.
+- Web or browser tools when a workflow needs live research or public ad-library access.
 
-## Distribution
-
-| Skill | What it does |
-|-------|-------------|
-| [content-miner](skills/distribution/content-miner) | Extract shareable content from recent activity |
-| [kit-newsletter](skills/distribution/kit-newsletter) | Manage Kit newsletters from the CLI |
-| [twitter-algorithm-optimizer](skills/distribution/twitter-algorithm-optimizer) | Optimize tweets against X's ranking algorithm |
-
-## System Map
-
-The flagship Channel47 workflow is the `creative-strategist` skill:
-
-```
-research -> personas -> angles -> advertorial
-                      \-> media-buyer + MCP connectors
-```
-
-Each stage runs independently or in sequence, accumulating into a single per-product dossier.
-
-The standalone skills are the public, agent-discoverable surface. The MCP connectors live in [`channel47/mcps`](https://github.com/channel47/mcps). Older Claude Code plugin packaging lives in [`channel47/plugins`](https://github.com/channel47/plugins) for history and compatibility.
-
-## Compatible with
-
-Claude Code, Cursor, Cline, Windsurf, Codex CLI, and any tool that reads `SKILL.md` files. The repo is structured for the Vercel `skills` CLI and public discovery through [skills.sh](https://skills.sh).
-
-## By [channel47](https://channel47.dev)
+Client behavior and available tools vary. Review each `SKILL.md` before use.

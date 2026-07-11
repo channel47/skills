@@ -10,23 +10,6 @@
         "ad-recon",
         "creative-strategist"
       ]
-    },
-    {
-      "title": "Paid Media",
-      "description": "Agent skills for paid media analysis, Google Ads querying, and MCP-backed account operations.",
-      "skills": [
-        "media-buyer",
-        "gaql"
-      ]
-    },
-    {
-      "title": "Distribution",
-      "description": "Skills for turning marketing work into content, newsletters, and social posts.",
-      "skills": [
-        "content-miner",
-        "kit-newsletter",
-        "twitter-algorithm-optimizer"
-      ]
     }
   ]
 }

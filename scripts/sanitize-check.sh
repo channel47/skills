@@ -1,19 +1,17 @@
 #!/bin/bash
-# Checks skills/ directory for personal details that shouldn't be published.
+# Checks the public repository for personal details that shouldn't be published.
 # Run from repo root: ./scripts/sanitize-check.sh
 # Returns non-zero if any matches found.
 
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-SKILLS_DIR="$REPO_ROOT/skills"
-
-if [ ! -d "$SKILLS_DIR" ]; then
-  echo "No skills/ directory found. Run sync.sh first."
+if [ ! -d "$REPO_ROOT/skills" ]; then
+  echo "No skills/ directory found."
   exit 1
 fi
 
-# Patterns to flag (case-insensitive grep)
+# Patterns to flag (case-insensitive fixed-string search)
 PATTERNS=(
   "Jackson Dean"
   "jackson dean"
@@ -29,11 +27,18 @@ PATTERNS=(
 
 found=0
 
+if ! command -v rg >/dev/null 2>&1; then
+  echo "sanitize-check requires ripgrep (rg)."
+  exit 1
+fi
+
 for pattern in "${PATTERNS[@]}"; do
-  matches=$(grep -rl "$pattern" "$SKILLS_DIR" 2>/dev/null || true)
+  matches=$(rg -l -i -F --hidden -g '!.git/**' -g '!scripts/sanitize-check.sh' -- "$pattern" "$REPO_ROOT" 2>/dev/null || true)
   if [ -n "$matches" ]; then
     echo "FOUND: \"$pattern\" in:"
-    echo "$matches" | sed 's/^/  /'
+    while IFS= read -r match; do
+      printf "  %s\n" "$match"
+    done <<< "$matches"
     found=1
   fi
 done

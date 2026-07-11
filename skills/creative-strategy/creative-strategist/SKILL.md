@@ -1,6 +1,6 @@
 ---
 name: creative-strategist
-description: Turn real customer language into ads that convert — voice-of-customer research, buyer personas, ranked ad angles, and a build-ready advertorial, accumulating in one per-product dossier. Use when the user wants to research what customers say about a product or category (pull reviews, Reddit threads, VOC, pain points, complaints), build buyer personas or customer avatars, find ad angles, hooks, or creative concepts, write an advertorial, presell, editorial, or listicle landing page, or run the creative strategy pipeline end to end.
+description: Turn sourced customer language into structured creative strategy — voice-of-customer research, buyer personas, ranked ad angles, and an advertorial draft, accumulating in one per-product dossier. Use when the user wants to research what customers say about a product or category (pull reviews, Reddit threads, VOC, pain points, complaints), build buyer personas or customer avatars, find ad angles, hooks, or creative concepts, write an advertorial, presell, editorial, or listicle landing page, or run the creative strategy pipeline end to end.
 ---
 
 # Creative Strategist
@@ -18,7 +18,10 @@ Competitor ad intelligence lives in the separate `ad-recon` skill — it writes 
 
 Full pipeline = all four in sequence. If a prerequisite section is missing from the dossier, offer to run that stage first — or accept equivalent context from the user and note the thinner foundation.
 
-Research runs as a subagent: launch an Agent whose prompt is the contents of `research.md` + `sources.md`, plus the research target and the dossier path. This keeps the noisy crawl out of the main context.
+When the client supports isolated subagents, run research in one using the
+contents of `research.md` and `sources.md`, plus the target and dossier path.
+Otherwise run the stage directly and write only the required evidence and
+synthesis to the dossier.
 
 ## The dossier
 
@@ -36,4 +39,4 @@ All output accumulates in `creative/[product-slug]-dossier.md` — one file per 
 
 ## Working style
 
-Check `brand/context.md` (the brief-me brand dossier) and `.claude/creative-strategist.local.md` for product context; if the target is still unclear, ask for product or category, known competitors, and open questions — or suggest running `brief-me` first. After each stage, brief the user in 3-5 lines (headline findings, biggest gap, suggested next stage) — don't dump the file.
+Check `brand/context.md` for product context; if the target is still unclear, ask for product or category, known competitors, and open questions — or suggest running `brief-me` first. After each stage, brief the user in 3-5 lines (headline findings, biggest gap, suggested next stage) — don't dump the file.

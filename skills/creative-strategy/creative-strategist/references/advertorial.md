@@ -8,6 +8,8 @@ End with two blocks:
 
 **Proof ledger** — every meaningful claim rated proven / needs-source / demo-only / remove, each with publish-safe wording:
 
+Illustrative ledger entries (synthetic):
+
 | Claim | Status | Safe wording |
 |---|---|---|
 | "Works for 9 out of 10 dogs" | needs-source | Cut, or replace with the Q22 testimonial until a stat exists |
