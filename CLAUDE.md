@@ -1,11 +1,13 @@
 # channel47 Skills
 
-Public repository of three creative-strategy skills.
+Public repository of standalone marketing skills.
 
 ## Structure
 
 ```
 skills/
+├── creative-production/
+│   └── make-static-ads/
 └── creative-strategy/
     ├── ad-recon/
     ├── brief-me/
@@ -26,7 +28,7 @@ required by the workflow.
 
 ## Adding a Skill
 
-1. Add the skill under `skills/creative-strategy/<name>/`.
+1. Add the skill under `skills/<category>/<name>/`.
 2. Add `SKILL.md` with valid `name` and `description` frontmatter.
 3. Add supporting files only when the workflow requires them.
 4. Run `./scripts/sanitize-check.sh` and fix any flags.

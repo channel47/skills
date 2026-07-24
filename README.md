@@ -1,6 +1,6 @@
 # channel47 Skills
 
-Three installable creative-strategy skills for SKILL.md-compatible agents.
+Installable marketing skills for SKILL.md-compatible agents.
 
 ## Install
 
@@ -8,7 +8,7 @@ Three installable creative-strategy skills for SKILL.md-compatible agents.
 # Choose skills and target agents interactively
 npx skills add channel47/skills
 
-# Install all three skills to all detected agents
+# Install all skills to all detected agents
 npx skills add channel47/skills --all
 
 # One skill
@@ -27,6 +27,7 @@ Or copy a skill folder to your agent's skills directory manually.
 | [brief-me](skills/creative-strategy/brief-me) | Interviews the user and writes shared brand context to `brand/context.md`. |
 | [ad-recon](skills/creative-strategy/ad-recon) | Collects and classifies competitor ads from public ad libraries. |
 | [creative-strategist](skills/creative-strategy/creative-strategist) | Runs research, persona, angle, and advertorial stages in a product dossier. |
+| [make-static-ads](skills/creative-production/make-static-ads) | Develops, produces, adapts, quality-checks, and packages static advertising creatives. |
 
 ## Requirements
 
