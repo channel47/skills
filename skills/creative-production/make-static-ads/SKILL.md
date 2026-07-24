@@ -175,6 +175,26 @@ campaign-name/
 
 Keep `campaign.json` only when it records useful campaign metadata for the manifest. Do not retain rejected generations, intermediate sources, prompts, or duplicate upload folders unless requested.
 
+When metadata is useful, key each concept by the concept slug used in its filenames:
+
+```json
+{
+  "campaign_name": "spring-launch",
+  "test_variable": "strategic angle",
+  "concepts": {
+    "c01-cleaning-cabinet": {
+      "name": "Cleaning Cabinet",
+      "strategic_angle": "Replace a cabinet of cleaners",
+      "audience": "Space-conscious households",
+      "headline": "One bottle. Every surface.",
+      "cta": "Shop now",
+      "destination_url": "https://example.com",
+      "caveats": ""
+    }
+  }
+}
+```
+
 Run:
 
 ```bash

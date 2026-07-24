@@ -119,6 +119,14 @@ def collect(campaign: Path, allow_missing: bool) -> list[dict]:
 
     metadata = load_metadata(campaign)
     concepts_meta = metadata.get("concepts", {})
+    if not isinstance(concepts_meta, dict):
+        raise ValueError('campaign.json field "concepts" must contain a JSON object')
+    for concept, concept_meta in concepts_meta.items():
+        if not isinstance(concept_meta, dict):
+            raise ValueError(
+                f'campaign.json concept "{concept}" must contain a JSON object'
+            )
+
     rows: list[dict] = []
     seen: dict[str, set[str]] = {}
     errors: list[str] = []
@@ -152,7 +160,10 @@ def collect(campaign: Path, allow_missing: bool) -> list[dict]:
             )
 
         concept = info["concept"]
-        seen.setdefault(concept, set()).add(info["ratio"])
+        concept_ratios = seen.setdefault(concept, set())
+        if info["ratio"] in concept_ratios:
+            errors.append(f"{concept}: duplicate ratio {info['ratio']}")
+        concept_ratios.add(info["ratio"])
         meta = concepts_meta.get(concept, {})
         rows.append(
             {
