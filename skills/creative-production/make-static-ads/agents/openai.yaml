@@ -1,0 +1,4 @@
+interface:
+  display_name: "Make Static Ads"
+  short_description: "Concept, generate, QA, and package static ads"
+  default_prompt: "Use $make-static-ads to develop and produce a platform-ready static ad campaign."

@@ -10,6 +10,13 @@
         "ad-recon",
         "creative-strategist"
       ]
+    },
+    {
+      "title": "Creative Production",
+      "description": "Production, adaptation, quality assurance, and packaging workflows for marketing creative.",
+      "skills": [
+        "make-static-ads"
+      ]
     }
   ]
 }
